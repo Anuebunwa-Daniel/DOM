@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <!-- <h1>DOM- Document object Model</h1>
+    <div id="element">   </div>
+    <h2 id="home"></h2>
+
+    <h2 class="item"></h2>
+
+    <p class="para1">welcome</p>
+    <p class="para1">home</p>
+    <p class="para1">doctor</p> -->
+
+
+    <h2>Element click Handler</h2>
+    <div id ="one" onclick = "alert ('ouch! stop!')"> click here, the first one! </div> <br><br> <br><br>
+
+    <script>
+        function stop (){
+            alert ('ouch stop pressing me please');
+        }
+        
+    </script>
+    <button onclick = "toggleDisplay ()">magic</button>
+    <p id ='magic'> i might disappear and appear</p>
+
+    <script>
+        function toggleDisplay(){
+            let p = document.getElementById('magic');
+            if (p.style.display ==="none"){
+                p.style.display ="block";
+             }else {
+                p.style.display ="none";
+            }
+        }
+    </script>
+
+    <style>
+        div {
+            height: 30px;
+            width: 500px;
+            background-color:aqua;
+         }
+    </style>
+
+    <div id="red"></div>
+    <div id="blue"></div>
+    <div id="green"></div>
+    <div id="orenge"></div>
+    <div id="gray"></div>
+    <div id="black"></div>
+    <div id="purple"></div>
+    <button onclick ="rainbowify()"> Make me a rainbow</button>
+
+    <script>
+
+        function rainbowify(){
+
+            let divs =document.getElementsByTagName("div");
+            for (let i =0; i < divs.length; i++) {
+                divs[i].style.backgroundColor=divs[i].id;
+                console.log(divs[i].id);
+            }
+        }
+    </script>
+
+    <!-- /Adding classes to HTML element -->
+    <style>
+        .hide{
+            display:none;
+        }
+        .square{
+            height: 100px;
+            width:100px;
+            background-color: yellow;
+        }
+        .square.blue{
+            background-color: blue;
+        }
+    </style>
+    <div id ="shape" class="square blue"></div>
+    <button onclick ="disappear()">Disaapear</button>
+    <script>
+        function disappear(){
+            document.getElementById('shape').classList.add('hide');
+        }
+    </script>
+
+<!-- removing  classes from elements -->
+<button onclick="change()">chaNGE!</button>
+<script>
+    function change(){
+        document.getElementById('shape').classList.remove('blue');
+    }
+</script>
+
+<!-- Toggling Classes -->
+<button onclick ="changeVisibility()">Toggle</button>
+<script>
+    function changeVisibility(){
+        documnet.getElementById('shape').classList.toogle('blue')
+    }
+</script>
+
+
+<!-- manipulating attributes -->
+<style>
+.circle{
+    border-radius:50%;
+}
+
+</style>
+<div id ="shape2" class="sqaure"></div>
+<button onclick="changeAttr()">change attribute....</button>
+<script>
+    function changeAttr(){
+        let el = document.getElementById('shape2')
+        el.setAttribute("style", "background-color:red; border: 2px solid black")
+        el.setAttribute('id', 'new')
+        el.setAttribute('class', 'circle')
+    }
+
+</script>
+
+<!-- creating New elements -->
+<button onclick="addRandomNumber()">Add a Number</button>
+<script>
+    function addRandomNumber(){
+        let elem = document.createElement('p');
+        elem.innerText = Math.floor(Math.random()*100);
+        document.body.appendchild(elem);
+    }
+</script>
+
+<br>
+<br><br>
+<body>
+    <div id="message">Complete JavaScript Course</div>
+    <div>
+    <input type="text" id="addItem">
+    <button onclick="addItem()">add list</button>
+    <input type="button" id="addNew" value="Add to List"> </div>
+    <div id="output">
+        <h1>Shopping List</h1>
+        <ol id="sList">
+            <li>book</li>
+            <li>pen</li>
+            <li>pencil</li>
+        </ol>
+        
+        </div>
+        <script>
+           function addItem(){
+            var ol =document.getElementById("sList");
+            var li =document.createElement("li");
+            var item = "chair";
+            document.body.appendChild(ol).document.body.appendChild(li).document.body.appendChild(item)
+
+
+
+
+            // li.innertext = document.createTextNode("book");
+            // li.appendchild(document.createTextNode("book"));
+            // ol.appendchild(li);
+           }
+
+        </script>
+
+    <script src="dom.js"></script>
+</body>
+</html>
